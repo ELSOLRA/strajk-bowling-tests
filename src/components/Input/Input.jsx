@@ -10,10 +10,14 @@ function Input({
   disabled,
   maxLength,
 }) {
+  const inputId = `input-${name}`;
   return (
     <section className="input">
-      <label className="input__label">{label}</label>
+      <label className="input__label" htmlFor={inputId}>
+        {label}
+      </label>
       <input
+        id={inputId}
         type={type}
         className={`input__field ${customClass ? customClass : ""}`}
         name={name}

@@ -54,7 +54,7 @@ describe("Booking View", () => {
       shoes: ["44", "44"],
       price: 340,
       id: "1",
-      active: true,
+      //   active: true,
     };
 
     await waitFor(() => {

@@ -4,10 +4,10 @@ export const handlers = [
   http.post(
     "https://h5jbtjv6if.execute-api.eu-north-1.amazonaws.com",
     async ({ request }) => {
-      const apiKey = request.headers.get("x-api-key");
+      /*       const apiKey = request.headers.get("x-api-key");
       if (apiKey !== "738c6b9d-24cf-47c3-b688-f4f4c5747662") {
         return new HttpResponse(null, { status: 401 });
-      }
+      } */
 
       const bookingInfo = await request.json();
 
@@ -22,7 +22,7 @@ export const handlers = [
         ...bookingInfo,
         price: totalPrice,
         id: "1",
-        active: true,
+        // active: true,
       });
     }
   ),

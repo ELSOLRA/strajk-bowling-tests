@@ -10,7 +10,7 @@ function Input({
   disabled,
   maxLength,
 }) {
-  const inputId = `input-${name}`;
+  const inputId = `input-${(name ?? label).toLowerCase().replace(/\s+/g, "-")}`;
   return (
     <section className="input">
       <label className="input__label" htmlFor={inputId}>

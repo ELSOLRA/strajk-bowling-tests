@@ -9,6 +9,4 @@ describe("Error message component", () => {
 
     expect(screen.getByText(testMassage)).toBeInTheDocument();
   });
-
-  //   test("error massage contains styling class", () =>{});
 });

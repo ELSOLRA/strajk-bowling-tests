@@ -48,7 +48,7 @@ describe("Confirmation Component - user able to view booking confirmation ", () 
     ).toBeInTheDocument();
   });
 
-  test(" if no location state displays booking details from sessionStorage", () => {
+  test("if no location state displays booking details from sessionStorage", () => {
     vi.mocked(useLocation).mockReturnValue({ state: null });
     global.sessionStorage.getItem.mockReturnValue(
       JSON.stringify(mockConfirmation)

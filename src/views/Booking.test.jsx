@@ -14,6 +14,23 @@ vi.mock("react-router-dom", async () => {
 });
 
 describe("Booking View", () => {
+  /*  const bookingData = {
+    date: "2024-12-19",
+    time: "16:00",
+    people: "2",
+    lanes: "1",
+    shoeSize: "44",
+  };
+
+  const expectedConfirmationData = {
+    when: "2024-12-19T16:00",
+    lanes: "1",
+    people: "2",
+    shoes: ["44", "44"],
+    price: 340,
+    id: "1",
+  }; */
+
   beforeEach(() => {
     vi.clearAllMocks();
     global.sessionStorage = {

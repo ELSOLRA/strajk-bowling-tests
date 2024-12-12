@@ -84,6 +84,7 @@ function Booking() {
     );
     const data = await response.json();
 
+    console.log("data to return: ", data);
     return data;
   }
 
@@ -127,7 +128,7 @@ function Booking() {
 
     console.log(!error);
 
-    console.log(bookingInfo);
+    console.log("booking info: ", bookingInfo);
 
     const confirmation = await sendBooking(bookingInfo);
     await saveConfirmation(confirmation);

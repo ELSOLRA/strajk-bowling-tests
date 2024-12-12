@@ -49,7 +49,7 @@ jobs:
           echo "Test coverage is below 90% (minimum 90% required). Current coverage: ${COVERAGE}%"
           exit 1
           else
-          echo "✅ Coverage: $TOTAL_COVERAGE%"
+          echo "✅ Coverage: ${COVERAGE}%"
           fi
 
   deploy:

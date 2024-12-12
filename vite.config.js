@@ -12,7 +12,7 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "html", "json", "json-summary"],
       include: ["src/**/*.js", "src/**/*.jsx"],
-      exclude: ["src/main.jsx", "src/mocks/**"],
+      exclude: ["src/main.jsx", "src/mocks/**", "src/utils/testUtils/**"],
     },
   },
 });

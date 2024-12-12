@@ -1,6 +1,6 @@
 import { describe, test, expect, vi, beforeEach } from "vitest";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import Navigation from "./Navigation";
 
 const mockNavigate = vi.fn();
@@ -14,7 +14,8 @@ vi.mock("react-router-dom", async () => {
 
 describe("Navigation component", () => {
   beforeEach(() => {
-    render(<Navigation />, { wrapper: BrowserRouter });
+    // using MemoryRouter instead of BrowserRouter
+    render(<Navigation />, { wrapper: MemoryRouter });
   });
 
   test("render nav menu", () => {

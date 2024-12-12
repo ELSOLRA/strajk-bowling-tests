@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 import Booking from "./Booking";
 import {
@@ -38,18 +38,6 @@ describe("Booking View", () => {
 
       const expectedBookingData = createExpectedData({});
 
-      /*       await waitFor(() => {
-        expect(sessionStorage.setItem).toHaveBeenCalledWith(
-          "confirmation",
-          JSON.stringify(expectedBookingData)
-        );
-
-        expect(mockNavigate).toBeCalledWith("/confirmation", {
-          state: {
-            confirmationDetails: expectedBookingData,
-          },
-        });
-      }); */
       verifyBookingSubmission(expectedBookingData);
     });
     test("completes booking after removing extra shoe field and using different shoe sizes", async () => {
@@ -64,18 +52,7 @@ describe("Booking View", () => {
 
       const expectedBookingData = createExpectedData({ shoes: ["44", "42"] });
 
-      await waitFor(() => {
-        expect(sessionStorage.setItem).toHaveBeenCalledWith(
-          "confirmation",
-          JSON.stringify(expectedBookingData)
-        );
-
-        expect(mockNavigate).toBeCalledWith("/confirmation", {
-          state: {
-            confirmationDetails: expectedBookingData,
-          },
-        });
-      });
+      verifyBookingSubmission(expectedBookingData);
     });
   });
 

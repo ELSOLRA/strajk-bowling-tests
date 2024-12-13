@@ -22,8 +22,19 @@ jobs:
       - name: Run tests with Coverage
         run: npm test
 
+      - name: Check for coverage files before upload
+        run: |
+          echo "Checking for coverage files..."
+          if [ -f ./coverage/coverage-summary.json ]; then
+            echo "✅ Coverage files found and ready for upload"
+            echo "Coverage summary:"
+            cat ./coverage/coverage-summary.json
+          else
+            echo "❌ No coverage files found before upload"
+          fi
+
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
@@ -37,7 +48,6 @@ jobs:
 
       - name: Check test coverage 📊
         run: |
-          find . -name "*coverage*.json"
           if [ ! -f ./coverage/coverage-summary.json ]; then
           echo "❌Coverage report not found❌"
           exit 1

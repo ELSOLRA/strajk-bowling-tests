@@ -1,0 +1,54 @@
+name: Tests coverage CI/CD
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run tests with Coverage
+        run: npm test
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  check-coverage:
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check test coverage 📊
+        run: |
+          if [ ! -f ./coverage/coverage-summary.json ]; then
+          echo "❌Coverage report not found❌"
+          exit 1
+          fi
+
+          echo "✅Coverage report found"
+
+          COVERAGE=$(jq '.total.lines.pct' ./coverage/coverage-summary.json)
+
+          if (( $(echo "$COVERAGE < 90" | bc -l) )); then
+          echo "Test coverage is below 90% (minimum 90% required). Current coverage: ${COVERAGE}%"
+          exit 1
+          else
+          echo "✅ Coverage: ${COVERAGE}%"
+          fi

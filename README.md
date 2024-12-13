@@ -71,10 +71,12 @@ Applikationen är byggd med React Js och använder ett testramverk bestående av
 ## Kravspecifikation för Testhantering
 
 **- `Gjort tester i React testing library för alla user stories och acceptanskriter som går grönt när man kör dessa.`**
+
 **- `Mockat POST-anrop med Mock service worker.`**
+
 **- `Testerna triggas via en Github actions på main-branchen. Det bör alltså finnas en grön bock i ditt Github repo när du lämnar in examinationen. Det ska heller inte gå och deploya om inte man når en viss procent.`**
 
-
 **- `Har skrivit tester för alla acceptanskriterier som är VG. Observera att det finns flera unika felmeddelanden och varje felmeddelande ska vara i sitt eget test. Här gäller det också att tänka igenom hur man skriver sina test. Om vi tar, att man ska ha fyllt i allt fält (datum, tid, antalet spelare och banor) så gäller det att testet kollar att felmeddelandet visas för flera kombinationer av vad man glömt att fylla i.`**
+
 **- `Du ska ha över 90% coverage i dina tester.`**
 

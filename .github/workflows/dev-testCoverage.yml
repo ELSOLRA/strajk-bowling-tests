@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run tests with Coverage
         run: npm test
@@ -35,20 +35,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # prevents deployment if coverage is below 90%
       - name: Check test coverage 📊
         run: |
-
-          COVERAGE_FILE="./coverage/coverage-summary.json"
-          if [ ! -f "$COVERAGE_FILE" ]; then
+          find . -name "*coverage*.json"
+          if [ ! -f ./coverage/coverage-summary.json ]; then
           echo "❌Coverage report not found❌"
           exit 1
           fi
 
-          echo "Coverage report found✅"
+          echo "✅Coverage report found"
 
           COVERAGE=$(jq '.total.lines.pct' ./coverage/coverage-summary.json)
-
 
           if (( $(echo "$COVERAGE < 90" | bc -l) )); then
           echo "Test coverage is below 90% (minimum 90% required). Current coverage: ${COVERAGE}%"

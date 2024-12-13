@@ -32,10 +32,15 @@ jobs:
     needs: test
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       # prevents deployment if coverage is below 90%
       - name: Check test coverage 📊
         run: |
-          if [ ! -f ./coverage/coverage-summary.json ]; then
+
+          COVERAGE_FILE="./coverage/coverage-summary.json"
+          if [ ! -f "$COVERAGE_FILE" ]; then
           echo "❌Coverage report not found❌"
           exit 1
           fi

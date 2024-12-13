@@ -28,7 +28,6 @@ describe("App component", () => {
   describe("Structure test", () => {
     test("renders with correct structure", () => {
       render(<App />);
-      screen.debug();
       expect(document.querySelector(".App")).toBeInTheDocument();
     });
   });

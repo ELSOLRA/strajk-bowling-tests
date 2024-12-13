@@ -23,7 +23,7 @@ jobs:
         run: npm test
 
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
@@ -34,15 +34,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Run tests with Coverage
-        run: npm test
 
       - name: Check test coverage 📊
         run: |

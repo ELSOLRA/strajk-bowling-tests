@@ -83,8 +83,6 @@ function Booking() {
       }
     );
     const data = await response.json();
-
-    console.log("data to return: ", data);
     return data;
   }
 
@@ -126,9 +124,9 @@ function Booking() {
       shoes: shoes.map((shoe) => shoe.size),
     };
 
-    console.log(!error);
+    /*     console.log(!error);
 
-    console.log("booking info: ", bookingInfo);
+    console.log("booking info: ", bookingInfo); */
 
     const confirmation = await sendBooking(bookingInfo);
     await saveConfirmation(confirmation);

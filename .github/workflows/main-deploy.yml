@@ -32,6 +32,8 @@ jobs:
     needs: test
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       # prevents deployment if coverage is below 90%
       - name: Check test coverage 📊
         run: |
@@ -43,7 +45,6 @@ jobs:
           echo "Coverage report found✅"
 
           COVERAGE=$(jq '.total.lines.pct' ./coverage/coverage-summary.json)
-
 
           if (( $(echo "$COVERAGE < 90" | bc -l) )); then
           echo "Test coverage is below 90% (minimum 90% required). Current coverage: ${COVERAGE}%"

@@ -96,7 +96,6 @@ describe("Booking View", () => {
       booking.fillForm();
       booking.addShoes(5);
       submitBooking();
-      screen.debug();
 
       expect(
         await screen.findByText(/Det får max vara 4 spelare per bana/i)

@@ -1,11 +1,24 @@
-# Individuell examination: Strajk bowling
+# Strajk Bowling Booking System / Individuell examination: Strajk bowling
+
+![React 18.2.0](https://img.shields.io/badge/React-18.2.0-blue?style=flat-square&logo=react)
+![Vite 4.1.0](https://img.shields.io/badge/Vite-4.1.0-purple?style=flat-square&logo=vite&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-green?style=flat&logo=vitest&logoColor=white)
+![Testing Library](https://img.shields.io/badge/Testing_Library-red?style=flat&logo=testing-library&logoColor=white)
+![MSW](https://img.shields.io/badge/MSW-black?style=flat&logo=mock-service-worker&logoColor=white)
+![Codecov-coverage](https://img.shields.io/badge/Codecov-coverage-brightgreen?style=flat&logo=codecov)
+
 
 ## Bakgrund
 
-Strajk bowling är en nyöppnad bowlinghall i centrala Bromölla. Ägaren K. Ägla gillar tekniska lösningar och har tillsammans med brorsonen Keso Ägla byggt denna webbapp.
-Herr Ägla är väldigt nöjd med appen men vill försäkra sig om att den är fortsatt stabil när ny funktionalitet läggs till framöver. Ditt uppdrag är att skriva unit tester med React testing library som sen kan köras för att testa av all funktionalitet när man gör en push till Github.
+Denna webbapplikation gör det möjligt för kunder att boka bowlingbanor hos Strajk Bowling i centrala Bromölla. Systemet hanterar banreservationer, skouthyrning och tillhandahåller automatiska bokningsbekräftelser.
 
-Du hittar de user stories som har implementerats nedan och som de ska skrivas tester för. Koden hittar du i mappen `Strajk bowling`.
+## Uppdrag
+
+Ett uppdrag är att skriva unit tester med React testing library som sen kan köras för att testa av all funktionalitet när man gör en push till Github. User stories som har implementerats nedan och som de ska skrivas tester för.
+
+## Teknisk Översikt
+
+Applikationen är byggd med React Js och använder ett testramverk bestående av Vitest och React Testing Library för funktionstestning. API-anrop simuleras genom MSW (Mock Service Worker) och testtäckningen övervakas via Codecov. 
 
 ## User stories
 
@@ -55,19 +68,13 @@ Du hittar de user stories som har implementerats nedan och som de ska skrivas te
 - Om användaren navigerar till bekräftelsevyn och ingen bokning är gjord eller finns i `session storage` ska texten "Ingen bokning gjord visas".
 - Om användaren navigerar till bekräftelsevyn och det finns en bokning sparad i `session storage` ska denna visas.
 
-## Betygskriterier
+## Kravspecifikation för Testhantering
 
-**Får godkänt ska du:**
+**- `Gjort tester i React testing library för alla user stories och acceptanskriter som går grönt när man kör dessa.`**
+**- `Mockat POST-anrop med Mock service worker.`**
+**- `Testerna triggas via en Github actions på main-branchen. Det bör alltså finnas en grön bock i ditt Github repo när du lämnar in examinationen. Det ska heller inte gå och deploya om inte man når en viss procent.`**
 
-- Gjort tester i React testing library för alla user stories och acceptanskriter som går grönt när man kör dessa.
-- Mockat POST-anrop med Mock service worker.
-- Testerna triggas via en Github actions på main-branchen. Det bör alltså finnas en grön bock i ditt Github repo när du lämnar in examinationen. Det ska heller inte gå och deploya om inte man når en viss procent.
 
-**Får Väl Godkänt ska du:**
+**- `Har skrivit tester för alla acceptanskriterier som är VG. Observera att det finns flera unika felmeddelanden och varje felmeddelande ska vara i sitt eget test. Här gäller det också att tänka igenom hur man skriver sina test. Om vi tar, att man ska ha fyllt i allt fält (datum, tid, antalet spelare och banor) så gäller det att testet kollar att felmeddelandet visas för flera kombinationer av vad man glömt att fylla i.`**
+**- `Du ska ha över 90% coverage i dina tester.`**
 
-- Har skrivit tester för alla acceptanskriterier som är VG. Observera att det finns flera unika felmeddelanden och varje felmeddelande ska vara i sitt eget test. Här gäller det också att tänka igenom hur man skriver sina test. Om vi tar, att man ska ha fyllt i allt fält (datum, tid, antalet spelare och banor) så gäller det att testet kollar att felmeddelandet visas för flera kombinationer av vad man glömt att fylla i.
-- Du ska ha över 90% coverage i dina tester.
-
-## Inlämning
-
-Lämna in länk till Githubrepo med koden och tester på Azomo senast **fredagen 13/12 kl 23:59**.
